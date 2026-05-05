@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy source
-COPY main.py features.py ./
+COPY main.py features.py model.py ./
 
 # Model + DB are mounted at runtime (Railway volumes / local bind-mount).
 # They are NOT baked into the image — keep the image lean and model-agnostic.
