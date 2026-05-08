@@ -170,7 +170,7 @@ def run():
     for ticker in TICKERS:
         # Daily bars — full year, free
         print(f"[Prices] yfinance 1-year daily for {ticker}...")
-        rows = fetch_yfinance_daily(ticker, period="1y")
+        rows = fetch_yfinance_daily(ticker, period="1d")
         n = store_ohlcv(rows)
         print(f"  Stored {n}/{len(rows)} daily bars")
 

@@ -127,6 +127,17 @@ def fetch_live_hot(subreddit: str, limit: int = 100):
     return posts
 
 
+# ── Filter removed posts ──────────────────────────────────────────────────────
+
+REMOVED_PATTERNS = {"[removed]", "[ removed by moderator ]"}
+
+def is_removed(post: dict) -> bool:
+    """Return True if Reddit scrubbed the post (title or body signals removal)."""
+    title = (post.get("title") or "").strip().lower()
+    body  = (post.get("body")  or "").strip().lower()
+    return title in REMOVED_PATTERNS or body in REMOVED_PATTERNS
+
+
 # ── DB writer ─────────────────────────────────────────────────────────────────
 
 def store_posts(rows: list):
@@ -187,6 +198,7 @@ def run(historical: bool = True):
         posts.extend(live)
         print(f"  Live hot: {len(live)} posts")
 
+        posts = [p for p in posts if not is_removed(p)]
         n = store_posts(posts)
         print(f"  Inserted {n}/{len(posts)} posts for r/{sub}")
         time.sleep(2)
