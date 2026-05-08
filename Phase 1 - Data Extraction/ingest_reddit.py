@@ -206,4 +206,4 @@ def run(historical: bool = True):
 
 if __name__ == "__main__":
     # Pass historical=False if you just want a quick live refresh
-    run(historical=True)
+    run(historical=False)
