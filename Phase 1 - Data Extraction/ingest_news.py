@@ -192,7 +192,7 @@ def run():
         rows = []
 
         # 1. GDELT — free, no key, ~1 year of history
-        gdelt_rows = fetch_gdelt(ticker, timespan="1d")
+        gdelt_rows = fetch_gdelt(ticker, timespan="2d")
         rows += gdelt_rows
         print(f"  GDELT: {len(gdelt_rows)} articles")
         time.sleep(1)   # be polite to GDELT
