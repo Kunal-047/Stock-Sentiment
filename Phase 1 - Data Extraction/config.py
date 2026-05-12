@@ -15,7 +15,13 @@ REDDIT_CLIENT_SECRET = "YOUR_REDDIT_CLIENT_SECRET"
 REDDIT_USER_AGENT    = "stock-sentiment-bot/1.0 by YOUR_REDDIT_USERNAME"
 
 # Tickers to track
-TICKERS = ["AAPL", "TSLA", "NVDA", "MSFT", "BTC-USD"]
+TICKERS = [
+    "AAPL", "MSFT", "NVDA", "AMZN", "GOOGL",
+    "META", "TSLA", "NFLX", "AMD", "INTC",
+    "JPM", "GS", "BAC", "V", "MA",
+    "XOM", "CVX", "LLY", "UNH", "JNJ",
+    "SPY", "QQQ", "BTC-USD", "ETH-USD", "PLTR"
+]
 
 # DB path (SQLite for local dev; swap with PostgreSQL DSN on deploy)
 DB_PATH = "market_data.db"
